@@ -1,3 +1,9 @@
+export type Screen = {
+  src: string;
+  alt: string;
+  caption: string;
+};
+
 export type CaseStudy = {
   slug: string;
   name: string;
@@ -8,6 +14,8 @@ export type CaseStudy = {
   solution: string[];
   result: string[];
   stack: string[];
+  heroScreen?: Screen;
+  screens?: Screen[];
 };
 
 export const caseStudies: CaseStudy[] = [
@@ -31,11 +39,65 @@ export const caseStudies: CaseStudy[] = [
       "Hardened the platform with strict security headers, rate limiting, IDOR testing, and verified email delivery.",
     ],
     result: [
-      "A live, production platform at copalog.vercel.app used for real operational reporting.",
+      "A live, production platform at copalog.vercel.app, built and demonstrated within a single NYSC service year — from concept to a working five-role system.",
+      "Validates every roster entry against official callup numbers and state codes before it enters the system, closing a gap that manual verification couldn't.",
+      "Routes reports and approvals through the correct role chain automatically, with no manual forwarding between officers.",
+      "Grade A security headers, rate-limited endpoints, and tested against IDOR vulnerabilities — hardening most early-stage platforms skip.",
       "Positive reception at YEEP'26 from NYSC's ICT Chief, with a formal technical report requested for the Deputy Director of ICT.",
-      "A security posture (Grade A headers, tested access controls) suitable for handling real organizational data.",
     ],
     stack: ["Next.js", "Supabase", "PostgreSQL", "Telegram Bot API", "n8n", "Upstash Redis", "Vercel"],
+    heroScreen: {
+      src: "/copalog/dashboard-lga-drilldown.png",
+      alt: "CopaLog HQ Command Centre national dashboard showing LGA-level drill-down",
+      caption: "HQ Command Centre — drill down from all states to a single CDS group in real time.",
+    },
+    screens: [
+      {
+        src: "/copalog/dashboard-state-breakdown.png",
+        alt: "State breakdown view showing verification rates by state",
+        caption: "State-by-state breakdown with live verification rates.",
+      },
+      {
+        src: "/copalog/national-impact-stats.png",
+        alt: "National impact statistics dashboard with corps members, PPAs, and verified logs",
+        caption: "National impact view — corps members, active PPAs, and verified logs at a glance.",
+      },
+      {
+        src: "/copalog/roster-csv-upload.png",
+        alt: "NYSC roster CSV upload screen with validation status",
+        caption: "Roster upload — CSV records validated before they ever reach a corps member's registration.",
+      },
+      {
+        src: "/copalog/roster-upload-format.png",
+        alt: "Registration flow showing callup number and state code validation error",
+        caption: "Callup number and state code are checked against the uploaded roster at registration.",
+      },
+      {
+        src: "/copalog/cds-group-overview.png",
+        alt: "CDS group session history and attendance overview for an LGA officer",
+        caption: "LGA Officer view — session codes, attendance counts, and group history.",
+      },
+      {
+        src: "/copalog/attendance-calendar.png",
+        alt: "Corps member attendance calendar showing monthly session records",
+        caption: "Corps Member view — a full year of CDS attendance in one calendar.",
+      },
+      {
+        src: "/copalog/session-history.png",
+        alt: "Session history log with generated session codes and attendance counts",
+        caption: "Every session generates a unique code and a timestamped attendance record.",
+      },
+      {
+        src: "/copalog/inbox-messages.png",
+        alt: "In-app inbox showing messages between corps members and HQ",
+        caption: "Built-in inbox — official communication without leaving the platform.",
+      },
+      {
+        src: "/copalog/activity-logged-confirmation.png",
+        alt: "Activity logged confirmation screen with a unique log reference ID",
+        caption: "Every submission gets a unique reference ID — nothing gets lost or disputed.",
+      },
+    ],
   },
   {
     slug: "voyn-pipeline",

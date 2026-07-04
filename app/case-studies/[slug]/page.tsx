@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { caseStudies, getCaseStudy } from "@/lib/case-studies";
 
 export function generateStaticParams() {
@@ -54,6 +55,24 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
         </div>
       </section>
 
+      {cs.heroScreen && (
+        <section className="border-b border-hairline bg-panel">
+          <div className="mx-auto max-w-content px-6 py-16">
+            <div className="overflow-hidden rounded-lg border border-hairline">
+              <Image
+                src={cs.heroScreen.src}
+                alt={cs.heroScreen.alt}
+                width={1170}
+                height={2122}
+                className="w-full h-auto"
+                priority
+              />
+            </div>
+            <p className="mt-4 text-sm text-muted">{cs.heroScreen.caption}</p>
+          </div>
+        </section>
+      )}
+
       <section className="mx-auto max-w-content px-6">
         <Block label="The Problem" color="text-alert" items={cs.problem} />
         <Block label="The Solution" color="text-steel" items={cs.solution} />
@@ -69,6 +88,28 @@ export default function CaseStudyPage({ params }: { params: { slug: string } }) 
             ))}
           </div>
         </div>
+
+        {cs.screens && cs.screens.length > 0 && (
+          <div className="border-t border-hairline py-12">
+            <p className="mono-label text-steel">Inside the platform</p>
+            <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {cs.screens.map((screen) => (
+                <div key={screen.src}>
+                  <div className="overflow-hidden rounded-lg border border-hairline">
+                    <Image
+                      src={screen.src}
+                      alt={screen.alt}
+                      width={1170}
+                      height={2122}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <p className="mt-3 text-sm text-muted">{screen.caption}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </section>
 
       <section className="border-t border-hairline">
