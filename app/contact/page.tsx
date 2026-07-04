@@ -1,3 +1,5 @@
+import ContactForm from "@/components/ContactForm";
+
 export const metadata = {
   title: "Contact — Zay Studio",
 };
@@ -17,62 +19,7 @@ export default function ContactPage() {
         </p>
 
         <div className="mt-14 grid gap-10 md:grid-cols-2">
-          <form className="space-y-5 rounded-lg border border-hairline bg-panel p-8">
-            <div>
-              <label htmlFor="name" className="mono-label text-muted">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                type="text"
-                className="mt-2 w-full rounded-md border border-hairline bg-ink px-4 py-3 text-sm text-paper outline-none focus:border-steel"
-                placeholder="Your name"
-              />
-            </div>
-            <div>
-              <label htmlFor="org" className="mono-label text-muted">
-                Organization
-              </label>
-              <input
-                id="org"
-                name="org"
-                type="text"
-                className="mt-2 w-full rounded-md border border-hairline bg-ink px-4 py-3 text-sm text-paper outline-none focus:border-steel"
-                placeholder="Your organization"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="mono-label text-muted">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                className="mt-2 w-full rounded-md border border-hairline bg-ink px-4 py-3 text-sm text-paper outline-none focus:border-steel"
-                placeholder="you@organization.com"
-              />
-            </div>
-            <div>
-              <label htmlFor="message" className="mono-label text-muted">
-                What&apos;s the workflow problem?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="mt-2 w-full rounded-md border border-hairline bg-ink px-4 py-3 text-sm text-paper outline-none focus:border-steel"
-                placeholder="Tell us what's manual today"
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-paper px-6 py-3 text-sm font-medium text-ink transition hover:bg-steel"
-            >
-              Send Message
-            </button>
-          </form>
+          <ContactForm />
 
           <div className="space-y-6">
             <div>
