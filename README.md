@@ -1,6 +1,6 @@
 # Zay Studio
 
-Marketing site for Zay Studio — a software studio building operational systems for organizations.
+Marketing site for Zay Studio— a software studio building operational systems for organizations.
 
 **Live:** [zays.vercel.app](https://zays.vercel.app)
 
